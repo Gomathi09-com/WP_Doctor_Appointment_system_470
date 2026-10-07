@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediCare | Online Doctor Appointment</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <a href="#home" class="logo">
+        <span>✚</span> MediCare
+    </a>
+
+    <nav id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#doctors">Doctors</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-buttons">
+        <button class="btn outline-btn" onclick="openLogin()">
+            Login
+        </button>
+
+        <button class="btn primary-btn" onclick="openRegister()">
+            Register
+        </button>
+    </div>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+</header>
+
+
+<!-- ================= HOME ================= -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <span class="eyebrow">
+            YOUR HEALTH, OUR PRIORITY
+        </span>
+
+        <h1>
+            Find the right doctor.
+            <br>
+            <span>Feel better, faster.</span>
+        </h1>
+
+        <p>
+            Discover experienced doctors, check available
+            time slots and book your appointment easily.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button
+                class="btn primary-btn large-btn"
+                onclick="scrollToDoctors()">
+                Find a Doctor →
+            </button>
+
+            <button
+                class="btn light-btn large-btn"
+                onclick="openRegister()">
+                Create Account
+            </button>
+
+        </div>
+
+        <div class="statistics">
+
+            <div>
+                <strong>10K+</strong>
+                <small>Patients</small>
+            </div>
+
+            <div>
+                <strong>200+</strong>
+                <small>Doctors</small>
+            </div>
+
+            <div>
+                <strong>25+</strong>
+                <small>Specialties</small>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-image">
+
+        <div class="doctor-emoji">
+            👩🏻‍⚕️
+        </div>
+
+        <div class="floating-card top-card">
+            <span>●</span>
+            24/7 Support
+        </div>
+
+        <div class="floating-card bottom-card">
+            <strong>★ 4.9</strong>
+            <small>Patient Rating</small>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SEARCH ================= -->
+
+<section class="search-section">
+
+    <div>
+        <span class="eyebrow">QUICK SEARCH</span>
+
+        <h2>
+            Who are you looking for?
+        </h2>
+    </div>
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="homeSearch"
+            placeholder="Search doctor or specialty..."
+            onkeyup="homeDoctorSearch()">
+
+        <button onclick="scrollToDoctors()">
+            🔍 Search
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DOCTORS ================= -->
+
+<section id="doctors" class="section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="eyebrow">
+                OUR SPECIALISTS
+            </span>
+
+            <h2>
+                Meet our doctors
+            </h2>
+
+            <p>
+                Experienced professionals ready to take care of you.
+            </p>
+
+        </div>
+
+
+        <div class="filters">
+
+            <input
+                type="text"
+                id="doctorSearch"
+                placeholder="Search doctors..."
+                onkeyup="displayDoctors()">
+
+            <select
+                id="specialtyFilter"
+                onchange="displayDoctors()">
+
+                <option value="all">
+                    All Specialties
+                </option>
+
+                <option value="Cardiology">
+                    Cardiology
+                </option>
+
+                <option value="Dermatology">
+                    Dermatology
+                </option>
+
+                <option value="Pediatrics">
+                    Pediatrics
+                </option>
+
+                <option value="Neurology">
+                    Neurology
+                </option>
+
+                <option value="Orthopedics">
+                    Orthopedics
+                </option>
+
+                <option value="Dentistry">
+                    Dentistry
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <div id="doctorGrid" class="doctor-grid"></div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section id="services" class="section light-section">
+
+    <div class="center-heading">
+
+        <span class="eyebrow">
+            OUR SERVICES
+        </span>
+
+        <h2>
+            Healthcare designed around you
+        </h2>
+
+        <p>
+            Everything you need to make healthcare simpler.
+        </p>
+
+    </div>
+
+
+    <div class="service-grid">
+
+        <div class="service-card">
+            <span>🫀</span>
+            <h3>Cardiology</h3>
+            <p>
+                Expert consultation for heart and cardiovascular health.
+            </p>
+        </div>
+
+
+        <div class="service-card">
+            <span>✨</span>
+            <h3>Dermatology</h3>
+            <p>
+                Professional care for skin, hair and cosmetic concerns.
+            </p>
+        </div>
+
+
+        <div class="service-card">
+            <span>🧸</span>
+            <h3>Pediatrics</h3>
+            <p>
+                Compassionate healthcare for children of all ages.
+            </p>
+        </div>
+
+
+        <div class="service-card">
+            <span>🧠</span>
+            <h3>Neurology</h3>
+            <p>
+                Specialized care for brain and neurological conditions.
+            </p>
+        </div>
+
+
+        <div class="service-card">
+            <span>🦴</span>
+            <h3>Orthopedics</h3>
+            <p>
+                Treatment and consultation for bones and joints.
+            </p>
+        </div>
+
+
+        <div class="service-card">
+            <span>🦷</span>
+            <h3>Dentistry</h3>
+            <p>
+                Complete dental consultation and oral healthcare.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section class="section">
+
+    <div class="center-heading">
+
+        <span class="eyebrow">
+            HOW IT WORKS
+        </span>
+
+        <h2>
+            Book your appointment in 4 simple steps
+        </h2>
+
+    </div>
+
+
+    <div class="steps">
+
+        <div class="step">
+            <span>01</span>
+            <div>🔍</div>
+            <h3>Search</h3>
+            <p>
+                Find a doctor by name or specialty.
+            </p>
+        </div>
+
+
+        <div class="step">
+            <span>02</span>
+            <div>👨‍⚕️</div>
+            <h3>Choose</h3>
+            <p>
+                Compare profiles and choose your doctor.
+            </p>
+        </div>
+
+
+        <div class="step">
+            <span>03</span>
+            <div>📅</div>
+            <h3>Book</h3>
+            <p>
+                Select your preferred date and time.
+            </p>
+        </div>
+
+
+        <div class="step">
+            <span>04</span>
+            <div>✓</div>
+            <h3>Confirm</h3>
+            <p>
+                Receive your appointment confirmation.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about" class="section about-section">
+
+    <div class="about-image">
+
+        <div class="medical-icon">
+            🩺
+        </div>
+
+        <div class="about-badge">
+            Trusted healthcare
+            <br>
+            <strong>Since 2020</strong>
+        </div>
+
+    </div>
+
+
+    <div class="about-content">
+
+        <span class="eyebrow">
+            ABOUT MEDICARE
+        </span>
+
+        <h2>
+            Healthcare that puts you first.
+        </h2>
+
+        <p>
+            MediCare is a modern online doctor appointment
+            platform designed to make finding and connecting
+            with healthcare professionals simple and convenient.
+        </p>
+
+        <div class="check-list">
+
+            <p>✓ Experienced and verified doctors</p>
+
+            <p>✓ Easy online appointment booking</p>
+
+            <p>✓ Flexible appointment slots</p>
+
+            <p>✓ Patient-focused experience</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TESTIMONIALS ================= -->
+
+<section class="section light-section">
+
+    <div class="center-heading">
+
+        <span class="eyebrow">
+            PATIENT STORIES
+        </span>
+
+        <h2>
+            What our patients say
+        </h2>
+
+    </div>
+
+
+    <div class="testimonial-grid">
+
+        <div class="testimonial">
+            <p>
+                “The booking process was so simple.
+                I found a dermatologist and got an
+                appointment within minutes.”
+            </p>
+
+            <strong>
+                — Ananya R.
+            </strong>
+        </div>
+
+
+        <div class="testimonial">
+            <p>
+                “The doctor profiles made it easy
+                to choose someone based on specialty
+                and experience.”
+            </p>
+
+            <strong>
+                — Rahul K.
+            </strong>
+        </div>
+
+
+        <div class="testimonial">
+            <p>
+                “Clean, simple and convenient.
+                Everything is available in one place.”
+            </p>
+
+            <strong>
+                — Priya S.
+            </strong>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="section contact-section">
+
+    <div>
+
+        <span class="eyebrow">
+            GET IN TOUCH
+        </span>
+
+        <h2>
+            We're here to help.
+        </h2>
+
+        <p>
+            Have a question about appointments or our services?
+            Send us a message.
+        </p>
+
+        <div class="contact-details">
+
+            <p>📍 Chennai, Tamil Nadu</p>
+
+            <p>📞 +91 98765 43210</p>
+
+            <p>✉ support@medicare.com</p>
+
+        </div>
+
+    </div>
+
+
+    <form
+        class="contact-form"
+        onsubmit="sendMessage(event)">
+
+        <input
+            type="text"
+            placeholder="Your name"
+            required>
+
+        <input
+            type="email"
+            placeholder="Email address"
+            required>
+
+        <textarea
+            rows="5"
+            placeholder="How can we help?"
+            required></textarea>
+
+        <button
+            type="submit"
+            class="btn primary-btn">
+            Send Message
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+
+            <a href="#home" class="logo footer-logo">
+                <span>✚</span> MediCare
+            </a>
+
+            <p>
+                Making healthcare easier,
+                one appointment at a time.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>Explore</h4>
+
+            <a href="#doctors">Doctors</a>
+
+            <a href="#services">Services</a>
+
+            <a href="#about">About</a>
+
+        </div>
+
+
+        <div>
+
+            <h4>Support</h4>
+
+            <a href="#contact">Contact</a>
+
+            <a href="#">Privacy Policy</a>
+
+            <a href="#">Terms</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 MediCare. Web Programming Project.
+
+    </div>
+
+</footer>
+
+
+<!-- ================= MODAL ================= -->
+
+<div id="modal" class="modal hidden">
+
+    <div class="modal-box">
+
+        <button
+            class="close-btn"
+            onclick="closeModal()">
+            ×
+        </button>
+
+        <div id="modalContent"></div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div id="toast" class="toast"></div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
